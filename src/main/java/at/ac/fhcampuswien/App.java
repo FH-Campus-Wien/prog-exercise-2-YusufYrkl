@@ -86,79 +86,36 @@ public class App {
         System.out.print("c: ");
         char c = sc.next().charAt(0);
 
-        for (int i = 1; i < h; i++)
-        {
-            for (int j = 0; j < h - i; j++)
-            {
+        for (int i = 0; i < h/2+2; i++) {
+            for (int j = 0; j < h - i; j++) {
                 System.out.print(" ");
             }
-            for (int k = i; k >= 1; k--)
-            {
+            for (int k = i; k >= 1; k--) {
                 char amk = (char) (c - k);
                 System.out.print(amk);
             }
-
-            for (int l = h-2; l <= i; l++)
-            {
-                char amk2 = (char) (c-l);
+            for (int l = 2; l <= i; l++) {
+                char amk2 = (char) (c - l);
                 System.out.print(amk2);
             }
-
             System.out.println();
         }
 
-      /*  for (int i = h-2; i >= 1; i--)
-        {
-
-            for (int j = 0; j <= h - i; j++)
-            {
+        for (int i = 0; i < h/2+1; i++) {
+            for (int j = 1; j <= i; j++) {
                 System.out.print(" ");
             }
-            for (int k = i; k >= 1; k--)
-            {
-                System.out.print(k);
+            for (int k = h - 1; k >= i; k--) {
+                char amk = (char) (c - k);
+                System.out.print(amk);
             }
-            for (int l = h-2; l <= i; l++)
-            {
-                System.out.print(l);
-            }
-
+           /* for (int l = 2; l <= i; l++) {
+                char amk2 = (char) (c - l);
+                System.out.print(amk2);
+            } */
             System.out.println();
-        } */
-
-
-        /*int i, j, k;
-        Scanner sc = new Scanner(System.in);
-        System.out.print("h: ");
-        int h = sc.nextInt();
-        System.out.print("c: ");
-        char c = sc.next().charAt(0);
-
-        if (h % 2 == 0) {
-            System.out.println("Invalid number!");
-            return;
         }
 
-        for (i = 0; i < h; i++) {
-            for (j = 0; j < h - i - 1; j++) {
-                System.out.print(" ");
-            }
-            for (k = 0; k < 2 * i + 1; k++) {
-                System.out.print(c);
-            }
-            System.out.println("");
-        }
-
-        for (i = h - 1; i > 0; i--) {
-            for (j = h - 1; j >= i; j--) {
-                System.out.print(" ");
-            }
-            for (k = 2 * i - 1; k > 0; k--) {
-                System.out.print(c);
-            }
-            System.out.println("");
-        }
-*/
     }
 
     //todo Task 5
