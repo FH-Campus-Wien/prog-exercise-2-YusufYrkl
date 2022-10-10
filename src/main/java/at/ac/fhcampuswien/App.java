@@ -61,14 +61,11 @@ public class App {
         // input your solution here
         int x = 6;
 
-        for (int i = 1; i <= x; i++)
-        {
-            for (int j = x; j > i; j--)
-            {
+        for (int i = 1; i <= x; i++) {
+            for (int j = x; j > i; j--) {
                 System.out.print(" ");
             }
-            for (int k = 1; k <= (i * 2) - 1; k++)
-            {
+            for (int k = 1; k <= (i * 2) - 1; k++) {
                 System.out.print("*");
             }
             System.out.println();
@@ -86,22 +83,22 @@ public class App {
         System.out.print("c: ");
         char c = sc.next().charAt(0);
 
-        for (int i = 0; i < h/2+2; i++) {
+        for (int i = 0; i < h / 2 + 2; i++) {
             for (int j = 0; j < h - i; j++) {
                 System.out.print(" ");
             }
             for (int k = i; k >= 1; k--) {
-                char amk = (char) (c+1 - k);
+                char amk = (char) (c + 1 - k);
                 System.out.print(amk);
             }
             for (int l = 2; l <= i; l++) {
-                char amk2 = (char) (c+1 - l);
+                char amk2 = (char) (c + 1 - l);
                 System.out.print(amk2);
             }
             System.out.println();
         }
 
-        for (int i = 0; i < h/2+1; i++) {
+        for (int i = 0; i < h / 2 + 1; i++) {
             for (int j = 1; j <= i; j++) {
                 System.out.print(" ");
             }
@@ -129,17 +126,17 @@ public class App {
         int note;
         int neg = 0;
         double avr = 0;
-        int i=1;
+        int i = 1;
 
         do {
-            System.out.print("Mark "+i+": ");
+            System.out.print("Mark " + i + ": ");
             note = sc.nextInt();
             avr = avr + note;
-            
-            if(note < 0 || note > 5){
+
+            if (note < 0 || note > 5) {
                 System.out.println("Invalid mark!");
                 i--;
-                avr= avr-note;
+                avr = avr - note;
             } else if (note == 0) {
                 i--;
             } else if (note == 5) {
@@ -151,13 +148,13 @@ public class App {
             i++;
         } while (note > 0);
         i = i - 1;
-        avr = avr/i;
-        if(Double.isNaN(avr)){
-        avr = 0;
+        avr = avr / i;
+        if (Double.isNaN(avr)) {
+            avr = 0;
         }
         System.out.printf("Average: %.2f", avr);
         System.out.println();
-        System.out.println("Negative marks: "+neg);
+        System.out.println("Negative marks: " + neg);
 
 
     }
@@ -170,7 +167,7 @@ public class App {
         int num = sc.nextInt();
         while (num > 0) {
 
-            System.out.println( num % 10);
+            System.out.println(num % 10);
 
             num = num / 10;
 
