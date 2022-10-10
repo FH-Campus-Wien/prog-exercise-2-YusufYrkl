@@ -59,18 +59,18 @@ public class App {
     //todo Task 3
     public void printPyramid() {
         // input your solution here
-        int x = 6, y = 0;
+        int x = 6;
 
-        for (int i = 1; i <= x; ++i, y = 0) {
-            for (int z = 1; z <= x - i; z++) {
-                System.out.print("  ");
+        for (int i = 1; i <= x; i++)
+        {
+            for (int j = x; j > i; j--)
+            {
+                System.out.print(" ");
             }
-
-            while (y != 2 * i - 1) {
-                System.out.print("* ");
-                y++;
+            for (int k = 1; k <= (i * 2) - 1; k++)
+            {
+                System.out.print("*");
             }
-
             System.out.println();
         }
 
@@ -91,11 +91,11 @@ public class App {
                 System.out.print(" ");
             }
             for (int k = i; k >= 1; k--) {
-                char amk = (char) (c - k);
+                char amk = (char) (c+1 - k);
                 System.out.print(amk);
             }
             for (int l = 2; l <= i; l++) {
-                char amk2 = (char) (c - l);
+                char amk2 = (char) (c+1 - l);
                 System.out.print(amk2);
             }
             System.out.println();
@@ -105,11 +105,15 @@ public class App {
             for (int j = 1; j <= i; j++) {
                 System.out.print(" ");
             }
-            for (int k = h - 1; k >= i; k--) {
-                char amk = (char) (c - k);
+            for (int k = i; k <= 1; k++) {
+                char amk = (char) (c);
                 System.out.print(amk);
             }
-           /* for (int l = 2; l <= i; l++) {
+         /*   for (int k = h - 1; k >= i; k--) {
+                char amk3 = (char) (c - k);
+                System.out.print(amk3);
+            }
+            for (int l = 2; l <= i; l++) {
                 char amk2 = (char) (c - l);
                 System.out.print(amk2);
             } */
@@ -121,12 +125,56 @@ public class App {
     //todo Task 5
     public void marks() {
         // input your solution here
+        Scanner sc = new Scanner(System.in);
+        int note;
+        int neg = 0;
+        double avr = 0;
+        int i=1;
+
+        do {
+            System.out.print("Mark "+i+": ");
+            note = sc.nextInt();
+            avr = avr + note;
+            
+            if(note < 0 || note > 5){
+                System.out.println("Invalid mark!");
+                i--;
+                avr= avr-note;
+            } else if (note == 0) {
+                i--;
+            } else if (note == 5) {
+                neg++;
+            } else if (note == 0 && i == 1) {
+
+            }
+
+            i++;
+        } while (note > 0);
+        i = i - 1;
+        avr = avr/i;
+        if(Double.isNaN(avr)){
+        avr = 0;
+        }
+        System.out.printf("Average: %.2f", avr);
+        System.out.println();
+        System.out.println("Negative marks: "+neg);
+
 
     }
 
     //todo Task 6
     public void happyNumbers() {
         // input your solution here
+        Scanner sc = new Scanner(System.in);
+        System.out.print("n: ");
+        int num = sc.nextInt();
+        while (num > 0) {
+
+            System.out.println( num % 10);
+
+            num = num / 10;
+
+        }
     }
 
     public static void main(String[] args) {
