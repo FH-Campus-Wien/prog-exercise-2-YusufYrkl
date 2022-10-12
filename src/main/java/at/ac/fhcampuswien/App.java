@@ -83,8 +83,14 @@ public class App {
         System.out.print("c: ");
         char c = sc.next().charAt(0);
 
-        for (int i = 0; i < h / 2 + 2; i++) {
-            for (int j = 0; j < h - i; j++) {
+        if(h % 2 == 0){
+            System.out.print("Invalid number!");
+            System.out.println();
+            return;
+        }
+
+        for (int i = 1; i < h / 2 + 2; i++) {
+            for (int j = 0; j < h / 2 - i + 1; j++) {
                 System.out.print(" ");
             }
             for (int k = i; k >= 1; k--) {
@@ -98,26 +104,23 @@ public class App {
             System.out.println();
         }
 
-        for (int i = 0; i < h / 2 + 1; i++) {
-            for (int j = 1; j <= i; j++) {
+        for (int i = 0; i < h / 2; i++) {
+            for (int j = 0; j <= i; j++) {
                 System.out.print(" ");
             }
-            for (int k = i; k <= 1; k++) {
-                char amk = (char) (c);
+            for (int k = i; k <= h/2-1; k++) {
+                char amk = (char) ((c-h/2+1)+k);
                 System.out.print(amk);
             }
-         /*   for (int k = h - 1; k >= i; k--) {
-                char amk3 = (char) (c - k);
-                System.out.print(amk3);
-            }
-            for (int l = 2; l <= i; l++) {
-                char amk2 = (char) (c - l);
+            for (int k = i; k <= h/2-2; k++) {
+                char amk2 = (char) (c-1-k);
                 System.out.print(amk2);
-            } */
+            }
             System.out.println();
         }
+        }
 
-    }
+
 
     //todo Task 5
     public void marks() {
@@ -162,16 +165,34 @@ public class App {
     //todo Task 6
     public void happyNumbers() {
         // input your solution here
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner (System.in);
         System.out.print("n: ");
-        int num = sc.nextInt();
-        while (num > 0) {
-
-            System.out.println(num % 10);
-
-            num = num / 10;
-
+        int num = sc.nextInt( );
+        int erg = num;
+        while (erg != 1 && erg != 4)
+        {
+            erg = happynumber(erg);
         }
+        if (erg ==1)
+        {
+            System.out.println ("Happy number!");
+        }
+        else
+        {
+            System.out.println ("Sad number!");
+        }
+
+    }
+    public static int happynumber (int num)
+    {
+        int x = 0, sum = 0;
+        while(num > 0)
+        {
+            x = num %10;
+            sum = sum+(x*x);
+            num = num/10;
+        }
+        return sum;
     }
 
     public static void main(String[] args) {
